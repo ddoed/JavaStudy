@@ -10,10 +10,11 @@ public class NetworkServiceV2_1 {
         try {
             client.connect();
             client.send(data);
-            client.disconnect();
         } catch (NetworkClientExceptionV2 e) {
             System.out.println("[오류] 코드: " + e.getErrorCode() + ", 메시지: " +
                     e.getMessage());
+        } finally {
+            client.disconnect();
         }
     }
 }
